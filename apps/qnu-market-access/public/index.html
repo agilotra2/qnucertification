@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>QNu Market Access Guide</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+<a class="skip" href="#main">Skip to guide</a>
+<header class="topbar">
+  <a class="brand" href="/" aria-label="QNu Market Access Guide home"><img src="/qnu-logo.svg" alt="QNu Labs"></a>
+  <h1>Market Access Guide</h1>
+  <nav aria-label="Main"><button class="nav-item active" id="guide-nav">Guide</button><button class="nav-item" id="data-nav">Data & governance</button></nav>
+  <div class="role-control"><label for="demo-role">Demo role</label><select id="demo-role"><option value="employee">Employee · Internal</option><option value="partner">Authorised partner</option><option value="admin">Administrator</option></select></div>
+</header>
+<div class="demo-banner">Local demo · Role switching demonstrates permissions; production sign-in is not configured.</div>
+<main id="main">
+<section id="guide-view">
+<div class="guide-grid">
+<section class="selection-panel" aria-labelledby="context-title">
+<div class="panel-title"><h2 id="context-title">Market & product</h2></div>
+<form id="guide-form">
+<div class="context-field"><label for="country">Country or region</label><div class="combobox"><input id="country" name="country" value="Singapore" autocomplete="off" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="countries"><button type="button" class="combo-toggle" aria-label="Show countries" aria-controls="countries" aria-expanded="false">⌄</button><div id="countries" class="combo-list" role="listbox" aria-label="Countries and regions" hidden></div></div></div>
+<div class="context-field"><label for="product">QNu product</label><div class="combobox"><input id="product" name="product" value="QConnect" autocomplete="off" required role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="products"><button type="button" class="combo-toggle" aria-label="Show products" aria-controls="products" aria-expanded="false">⌄</button><div id="products" class="combo-list" role="listbox" aria-label="QNu products" hidden></div></div></div>
+<div class="context-field"><label for="segment">Customer type</label><div class="combobox"><input id="segment" name="segment" value="Commercial" data-value="Commercial" readonly role="combobox" aria-autocomplete="none" aria-expanded="false" aria-controls="segments"><button type="button" class="combo-toggle" aria-label="Show customer types" aria-controls="segments" aria-expanded="false">⌄</button><div id="segments" class="combo-list" role="listbox" aria-label="Customer types" hidden></div></div></div>
+<fieldset id="module-field" hidden><legend>QShield 2.0 modules</legend><div id="module-options"></div></fieldset>
+<details id="context-settings" class="context-settings"><summary>Deployment & applicability</summary>
+<div id="deployment-field"><label for="deployment">Deployment</label><select id="deployment" name="deployment"><option value="on-prem">On-premises</option><option value="cloud">Cloud / SaaS</option></select></div>
+<div id="hardware-field" hidden><label for="hardware">Accompanying hardware</label><select id="hardware" name="hardware"><option value="no">Software only</option><option value="yes">Yes — review appliance gates</option></select><p class="field-help" id="hardware-help">Select the appliance separately if it is not QRNG.</p></div>
+<div id="bundle-notice" class="inline-note">QRNG appliance included; confirm the actual configuration.</div>
+<div id="radio-field"><label for="radio">Appliance includes radio?</label><select id="radio" name="radio"><option value="no">No — assumed; confirm SKU</option><option value="yes">Yes — additional review needed</option></select></div>
+<label for="sector">Regulated sector / use</label><select id="sector" name="sector"><option value="unspecified">Unspecified — retain conditions</option><option value="general">General enterprise</option><option value="finance">Financial services</option><option value="health">Healthcare</option><option value="telecom">Telecommunications</option><option value="classified">Classified / sensitive government use</option></select>
+<label for="export_india">Exporting from India?</label><select id="export_india" name="export_india"><option value="yes">Yes — include export requirements</option><option value="no">No</option></select>
+</details>
+<p class="context-defaults" id="context-defaults"></p>
+<button class="primary" id="run" type="submit">Show requirements <span aria-hidden="true">→</span></button>
+<p class="form-footnote">Type to search. Unlisted markets show unknown coverage.</p>
+</form></section>
+<div class="results-column"><div id="error" class="error" role="alert" hidden></div><div id="loading" class="loading" role="status">Loading requirements…</div><div id="result-content" hidden>
+<section class="summary" aria-labelledby="result-title">
+<div class="summary-heading"><div class="summary-title"><h2 id="result-title"></h2><span class="product-pill" id="result-product"></span></div><span class="outline-tag" id="classification"></span></div>
+<div class="summary-context"><p id="result-context"></p><div class="assessment" id="assessment"></div></div>
+<p class="summary-note" id="summary-note"></p>
+<div class="summary-footer"><span id="scope-summary"></span><button class="secondary" id="print-brief">Print / PDF</button><button class="text-button" id="json-export">Export JSON</button></div>
+</section>
+<div class="stats" id="stats"></div>
+<details class="assumptions"><summary>Assumptions & source notes <span id="assumption-count"></span></summary><div class="source-notice"><strong>Research snapshot</strong><p></p></div><div id="assumption-body"></div></details>
+<div class="tabs" role="tablist" aria-label="Brief sections"><button role="tab" aria-selected="true" data-tab="requirements" id="tab-requirements" aria-controls="tab-content">Requirements</button><button role="tab" aria-selected="false" data-tab="actions" id="tab-actions" aria-controls="tab-content">Actions</button><button role="tab" aria-selected="false" data-tab="status" id="tab-status" aria-controls="tab-content">QNu status & gaps</button><button role="tab" aria-selected="false" data-tab="sources" id="tab-sources" aria-controls="tab-content">Sources & questions</button></div>
+<section id="tab-content" role="tabpanel" aria-labelledby="tab-requirements" tabindex="0"></section>
+</div></div></div>
+</section>
+<section id="data-view" hidden><h2>Data & governance</h2><p class="lead">Source evidence, version history and sharing approvals.</p><div id="data-content"></div></section>
+<footer class="page-footer"><span id="snapshot-date"></span><span>Local prototype · No continuous updates</span></footer>
+</main>
+<dialog id="evidence-dialog"><div class="dialog-heading"><h2>Source details</h2><button id="close-dialog" class="text-button" aria-label="Close source details">Close ×</button></div><div id="evidence-content"></div></dialog>
+<script src="/app.js"></script>
+</body></html>
